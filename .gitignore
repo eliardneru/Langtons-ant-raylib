@@ -1,0 +1,21 @@
+# CMake build files
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+cmake_install.cmake
+
+# Compile commands
+compile_commands.json
+
+# Executables and object files
+*.exe
+*.o
+*.obj
+*.lib
+*.pdb
+*.ilk
+*.idb
+
+# Sublime project/session files
+*.sublime-project
+*.sublime-workspace	
