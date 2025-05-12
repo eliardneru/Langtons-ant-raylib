@@ -64,10 +64,14 @@ void ant::antTrail(std::vector<std::vector<bool>> &grid, RenderTexture2D &canvas
     y = (y + grid.size()) % grid.size();
 }
 
-void antCreate(std::vector<ant> &ants, Camera2D cam)
+void antCreate(std::vector<ant> &ants, Camera2D cam, std::vector<std::vector<bool>> grid)
 {
     Vector2 mouseWorldPos = GetScreenToWorld2D(GetMousePosition(), cam);
-    ants.push_back(ant((int)mouseWorldPos.x, (int)mouseWorldPos.y, rand() % 4 + 1));
+
+    if (mouseWorldPos.x >= 0 && mouseWorldPos.x < 0 + grid.size() && mouseWorldPos.y >= 0 && grid[0].size())
+    {
+        ants.push_back(ant((int)mouseWorldPos.x, (int)mouseWorldPos.y, rand() % 4 + 1));
+    }
 }
 
 void cameraMove(Camera2D &cam)
@@ -193,7 +197,7 @@ int main(int argc, char *argv[])
 
         if(IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
         {
-            antCreate(ants,camera);
+            antCreate(ants,camera, grid);
         }
 
         controls(fixedDT, updateSpeed);

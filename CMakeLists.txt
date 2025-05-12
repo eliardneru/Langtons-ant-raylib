@@ -25,14 +25,7 @@ add_executable(AntGame
 )
 
 
-# Copy assets
-add_custom_command(TARGET AntGame POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    "${CMAKE_SOURCE_DIR}/assets"
-    "$<TARGET_FILE_DIR:AntGame>/assets"
-)
-
-# copy sfml stuff
+# Copy raylib DLL to executable folder
 
 add_custom_command(TARGET AntGame POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy
